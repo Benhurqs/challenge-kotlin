@@ -1,0 +1,10 @@
+include ':app'
+
+//library
+include ':libraries:network', ':libraries:actions'
+
+//features
+include ':features:detail', ':features:mainlist'
+
+
+rootProject.name='ZapChallenge'
