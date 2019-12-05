@@ -7,5 +7,5 @@ class PricingInfo : Serializable{
     var rentalTotalPrice: Double = 0.0 // Valor de aluguel
     var businessType: String? = null // define se é aluguel ou venda
     var yearlyIptu: Double = 0.0
-    var monthlyCondoFee: Double = 0.0
+    var monthlyCondoFee: String = ""
 }

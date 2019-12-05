@@ -2,6 +2,7 @@ package com.benhurqs.network.domain.usecase
 
 import com.benhurqs.network.domain.model.Imovel
 import com.benhurqs.network.domain.model.address.Geolocation
+import com.benhurqs.network.domain.model.address.Location
 
 abstract class ListUseCase(cachedList: List<Imovel>){
 
@@ -34,13 +35,13 @@ abstract class ListUseCase(cachedList: List<Imovel>){
         return geolocation?.location != null && geolocation.location!!.lat != 0.0 && geolocation.location!!.lon != 0.0
     }
 
-    protected fun insideBoundingBox(lat: Double, lon: Double): Boolean{
+    protected fun insideBoundingBox(location: Location): Boolean{
         val minlon = -46.693419
         val minlat = -23.568704
         val maxlon = -46.641146
         val maxlat = -23.546686
 
-        return (minlat <= lat && lat <= maxlat && minlon <= lon && maxlon >= lon)
+        return (location.lat in maxlat..minlat && location.lon in maxlon..minlon)
     }
 
 

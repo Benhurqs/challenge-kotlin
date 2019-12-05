@@ -15,4 +15,5 @@ class Imovel {
     var bedrooms: Int = 0
     var pricingInfos: PricingInfo? = null
     var address: Address? = null
+    var images: Array<String>? = null
 }
