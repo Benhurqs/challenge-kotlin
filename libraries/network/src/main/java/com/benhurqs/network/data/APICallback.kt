@@ -1,4 +1,4 @@
-package com.benhurqs.network.api
+package com.benhurqs.network.data
 
 interface APICallback<RESPONSE> {
     fun onStart()

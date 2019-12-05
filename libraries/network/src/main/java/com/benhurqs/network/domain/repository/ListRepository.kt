@@ -1,9 +1,12 @@
-package com.benhurqs.network.repository
+package com.benhurqs.network.domain.repository
 
-import com.benhurqs.network.api.APICallback
-import com.benhurqs.network.api.ZapAPIService
-import com.benhurqs.network.domain.Imovel
-import io.reactivex.Observable
+import com.benhurqs.network.data.APICallback
+import com.benhurqs.network.data.ZapAPIService
+import com.benhurqs.network.domain.model.BusinessType
+import com.benhurqs.network.domain.model.Imovel
+import com.benhurqs.network.domain.usecase.ListUseCase
+import com.benhurqs.network.domain.usecase.VivaRealUseCase
+import com.benhurqs.network.domain.usecase.ZapUseCase
 import io.reactivex.Observer
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,6 +17,10 @@ class ListRepository(
     val apiService: ZapAPIService = ZapAPIService(),
     val ioScheduler: Scheduler = Schedulers.io(),
     val mainScheduler: Scheduler = AndroidSchedulers.mainThread()) {
+
+    var zapUseCase: ListUseCase? = null
+    var vivaRealUseCase: ListUseCase? = null
+
 
     companion object {
         private var mInstance: ListRepository? = null
@@ -27,9 +34,8 @@ class ListRepository(
         }
     }
 
-    private fun callRemoteAPI(albumID: Int, callback: APICallback<List<Imovel>?>? = null) {
+    fun callListAPI(callback: APICallback<List<Imovel>?>? = null) {
         apiService.getList()
-            .map { it?.filter { imovel-> imovel.owner } }
             .observeOn(mainScheduler)
             .subscribeOn(ioScheduler)
             .doOnSubscribe {
@@ -40,8 +46,15 @@ class ListRepository(
                     callback?.onError()
                 }
 
-                override fun onNext(value: List<Imovel>?) {
-                    callback?.onSuccess(value)
+                override fun onNext(response: List<Imovel>?) {
+                    if(response.isNullOrEmpty()){
+                        callback?.onError()
+                    }else{
+                        zapUseCase = ZapUseCase(response)
+                        vivaRealUseCase = VivaRealUseCase(response)
+
+                        callback?.onSuccess(response)
+                    }
                 }
 
                 override fun onComplete() {
@@ -53,5 +66,8 @@ class ListRepository(
             })
     }
 
+
+    fun getZapList() : List<Imovel>? = zapUseCase?.getList()
+    fun getVivaRealList(): List<Imovel>? = vivaRealUseCase?.getList()
 
 }

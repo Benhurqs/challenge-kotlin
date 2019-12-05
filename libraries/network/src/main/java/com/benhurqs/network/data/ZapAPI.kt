@@ -1,12 +1,12 @@
-package com.benhurqs.network.api
+package com.benhurqs.network.data
 
-import com.benhurqs.network.domain.Imovel
+import com.benhurqs.network.domain.model.Imovel
 import io.reactivex.Observable
 import retrofit2.http.GET
 
 interface ZapAPI{
 
-    @GET("")
+    @GET("source-1.json")
     fun list(): Observable<List<Imovel>?>
 
 

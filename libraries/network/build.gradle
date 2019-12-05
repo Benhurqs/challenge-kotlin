@@ -14,7 +14,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
-        buildConfigField "String", "SERVER_URL", "\"http://grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/sources/source-1.json\""
+        buildConfigField "String", "SERVER_URL", "\"http://grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/sources/\""
     }
 
 
