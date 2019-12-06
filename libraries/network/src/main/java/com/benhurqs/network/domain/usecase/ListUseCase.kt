@@ -41,7 +41,7 @@ abstract class ListUseCase(cachedList: List<Imovel>){
         val maxlon = -46.641146
         val maxlat = -23.546686
 
-        return (location.lat in maxlat..minlat && location.lon in maxlon..minlon)
+        return (location.lat in minlat..maxlat && location.lon in minlon..maxlon)
     }
 
 
