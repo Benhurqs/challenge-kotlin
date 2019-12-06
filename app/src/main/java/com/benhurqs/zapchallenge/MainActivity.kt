@@ -15,18 +15,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       repository.callListAPI(object : APICallback<List<Imovel>?>{
+       repository.callListAPI(object : APICallback{
             override fun onStart() {
 
             }
 
-            override fun onError() {
+            override fun onError(error: String?) {
             }
 
             override fun onFinish() {
             }
 
-            override fun onSuccess(response: List<Imovel>?) {
+            override fun onSuccess() {
                 var viva = repository.getVivaRealList()
                 var zap = repository.getZapList()
 

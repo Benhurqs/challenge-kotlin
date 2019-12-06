@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-class ZapAPIService  {
+open class ZapAPIService  {
 
     private val retrofit: Retrofit
     private val api: ZapAPI
@@ -43,7 +43,7 @@ class ZapAPIService  {
         api = retrofit.create(ZapAPI::class.java)
     }
 
-    fun getList(): Observable<List<Imovel>?> = api.list()
+    open fun getList(): Observable<List<Imovel>?> = api.list()
 
 
 }

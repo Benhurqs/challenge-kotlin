@@ -19,7 +19,7 @@ class ListUseCaseTest{
     fun `Check if address != null return list`(){
         var list = getListMock()
         var testUseCase =
-            TestUseCase(list)
+            TestUseCaseHelper(list)
         assertFalse(testUseCase.getList().isNullOrEmpty())
         assertTrue(list == testUseCase.getList())
     }
@@ -35,7 +35,7 @@ class ListUseCaseTest{
         )
 
         var testUseCase =
-            TestUseCase(list)
+            TestUseCaseHelper(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -53,7 +53,7 @@ class ListUseCaseTest{
         )
 
         var testUseCase =
-            TestUseCase(list)
+            TestUseCaseHelper(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -73,7 +73,7 @@ class ListUseCaseTest{
         )
 
         var testUseCase =
-            TestUseCase(list)
+            TestUseCaseHelper(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -96,7 +96,7 @@ class ListUseCaseTest{
         )
 
         var testUseCase =
-            TestUseCase(list)
+            TestUseCaseHelper(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -119,7 +119,7 @@ class ListUseCaseTest{
         )
 
         var testUseCase =
-            TestUseCase(list)
+            TestUseCaseHelper(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -142,7 +142,7 @@ class ListUseCaseTest{
         )
 
         var testUseCase =
-            TestUseCase(list)
+            TestUseCaseHelper(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -165,7 +165,7 @@ class ListUseCaseTest{
         )
 
         var testUseCase =
-            TestUseCase(list)
+            TestUseCaseHelper(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -174,7 +174,7 @@ class ListUseCaseTest{
     fun `Check if insideBoundingBox == false when lat = 0 `(){
 
         var testUseCase =
-            TestUseCase(getListMock())
+            TestUseCaseHelper(getListMock())
         val location = Location().apply {
             lat = 0.0
             lon =  -46.641146
@@ -189,7 +189,7 @@ class ListUseCaseTest{
     fun `Check if insideBoundingBox == false when lon = 0 `(){
 
         var testUseCase =
-            TestUseCase(getListMock())
+            TestUseCaseHelper(getListMock())
         val location = Location().apply {
             lat = -23.568704
             lon =  0.0
@@ -203,7 +203,7 @@ class ListUseCaseTest{
     fun `Check if insideBoundingBox == true when the location is on the max border`(){
 
         var testUseCase =
-            TestUseCase(getListMock())
+            TestUseCaseHelper(getListMock())
         val location = Location().apply {
             lat = -23.546686
             lon = -46.641146
@@ -216,7 +216,7 @@ class ListUseCaseTest{
     fun `Check if insideBoundingBox == true when the location is on the min border`(){
 
         var testUseCase =
-            TestUseCase(getListMock())
+            TestUseCaseHelper(getListMock())
         val location = Location().apply {
             lat = -23.568704
             lon = -46.693419
@@ -230,7 +230,7 @@ class ListUseCaseTest{
     fun `Check if insideBoundingBox == true when the location is inside box`(){
 
         var testUseCase =
-            TestUseCase(getListMock())
+            TestUseCaseHelper(getListMock())
         val location = Location().apply {
             lat = -23.558704
             lon = -46.673419

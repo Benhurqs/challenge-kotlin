@@ -71,4 +71,46 @@ object Mocks{
             lon = -20.0
         }
     }
+
+    fun getSalesZapImovel(): Imovel{
+        val imovel = Mocks.getImovel()
+        imovel.id = "1"
+        imovel.pricingInfos = Mocks.getPricingInfoRental()
+        imovel.pricingInfos?.businessType = BusinessType.SALE.name
+        imovel.usableAreas = 10.0
+        imovel.pricingInfos?.price = 800000.0
+
+        return imovel
+    }
+
+
+    fun getRentalZapImovel(): Imovel{
+        val imovel = Mocks.getImovel()
+        imovel.id = "2"
+        imovel.pricingInfos = Mocks.getPricingInfoRental()
+        imovel.pricingInfos?.price = 7000.0
+
+        return imovel
+    }
+
+    fun getSalesVivaImovel(): Imovel{
+        val imovel = Mocks.getImovel()
+        imovel.id = "3"
+        imovel.pricingInfos = Mocks.getPricingInfoRental()
+        imovel.pricingInfos?.businessType = BusinessType.SALE.name
+        imovel.pricingInfos?.price = 500000.0
+
+        return imovel
+    }
+
+
+    fun getRentalVivaRealImovel(): Imovel{
+        val imovel = Mocks.getImovel()
+        imovel.id = "4"
+        imovel.pricingInfos = Mocks.getPricingInfoRental()
+        imovel.pricingInfos?.monthlyCondoFee = "100"
+        imovel.pricingInfos?.price = 1000.0
+
+        return imovel
+    }
 }

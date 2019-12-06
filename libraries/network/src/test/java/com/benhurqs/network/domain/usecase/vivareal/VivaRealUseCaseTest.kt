@@ -1,6 +1,6 @@
 package com.benhurqs.network.domain.usecase.vivareal
 
-import TestVivaRealUseCase
+import TestVivaRealUseCaseHelper
 import com.benhurqs.network.Utils.Mocks
 import com.benhurqs.network.domain.model.BusinessType
 import org.junit.Assert.*
@@ -9,12 +9,12 @@ import org.junit.Test
 
 class VivaRealUseCaseTest{
 
-    lateinit var vivaRealUseCase: TestVivaRealUseCase
+    lateinit var vivaRealUseCase: TestVivaRealUseCaseHelper
 
     @Before
     fun setUp(){
         vivaRealUseCase =
-            TestVivaRealUseCase(Mocks.getListMock())
+            TestVivaRealUseCaseHelper(Mocks.getListMock())
     }
 
     @Test

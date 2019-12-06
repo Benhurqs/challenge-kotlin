@@ -38,11 +38,11 @@ open class VivaRealUseCase(cachedList: List<Imovel>) : ListUseCase(cachedList){
      *
      */
     protected fun rentalBoundingBoxCondition(imovel: Imovel): Boolean{
-        var MAX_PRICE = 4000
-        return if(insideBoundingBox(imovel.address?.geoLocation?.location!!)){
-            imovel.pricingInfos!!.price  <= MAX_PRICE * (1.5)
+        var MAX_PRICE = 4000.0
+        if(insideBoundingBox(imovel.address?.geoLocation?.location!!)){
+            return imovel.pricingInfos!!.price  <= MAX_PRICE * (1.5)
         }else{
-            imovel.pricingInfos!!.price <= MAX_PRICE
+            return imovel.pricingInfos!!.price <= MAX_PRICE
         }
 
     }

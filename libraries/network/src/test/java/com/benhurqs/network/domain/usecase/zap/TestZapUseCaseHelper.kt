@@ -3,7 +3,7 @@ package com.benhurqs.network.domain.usecase.zap
 import com.benhurqs.network.domain.model.Imovel
 import com.benhurqs.network.domain.usecase.ZapUseCase
 
-class TestZapUseCase(list: List<Imovel>): ZapUseCase(list){
+class TestZapUseCaseHelper(list: List<Imovel>): ZapUseCase(list){
     override fun rentalCondition(imovel: Imovel): Boolean {
         return super.rentalCondition(imovel)
     }

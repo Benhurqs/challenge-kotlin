@@ -1,8 +1,8 @@
 package com.benhurqs.network.data
 
-interface APICallback<RESPONSE> {
+interface APICallback {
     fun onStart()
-    fun onError()
+    fun onError(error: String?)
     fun onFinish()
-    fun onSuccess(response: RESPONSE)
+    fun onSuccess()
 }

@@ -7,12 +7,12 @@ import org.junit.Before
 import org.junit.Test
 
 class ZapUseCaseTest{
-    lateinit var zapUseCase: TestZapUseCase
+    lateinit var zapUseCase: TestZapUseCaseHelper
 
     @Before
     fun setUp(){
         zapUseCase =
-            TestZapUseCase(Mocks.getListMock())
+            TestZapUseCaseHelper(Mocks.getListMock())
     }
 
     @Test

@@ -2,7 +2,6 @@ package com.benhurqs.network.domain.repository
 
 import com.benhurqs.network.data.APICallback
 import com.benhurqs.network.data.ZapAPIService
-import com.benhurqs.network.domain.model.BusinessType
 import com.benhurqs.network.domain.model.Imovel
 import com.benhurqs.network.domain.usecase.ListUseCase
 import com.benhurqs.network.domain.usecase.VivaRealUseCase
@@ -18,8 +17,8 @@ class ListRepository(
     val ioScheduler: Scheduler = Schedulers.io(),
     val mainScheduler: Scheduler = AndroidSchedulers.mainThread()) {
 
-    var zapUseCase: ListUseCase? = null
-    var vivaRealUseCase: ListUseCase? = null
+    private var zapUseCase: ListUseCase? = null
+    private var vivaRealUseCase: ListUseCase? = null
 
 
     companion object {
@@ -34,26 +33,29 @@ class ListRepository(
         }
     }
 
-    fun callListAPI(callback: APICallback<List<Imovel>?>? = null) {
+    fun getZapList() : List<Imovel>? = zapUseCase?.getList()
+    fun getVivaRealList(): List<Imovel>? = vivaRealUseCase?.getList()
+
+    fun callListAPI(callback: APICallback? = null) {
         apiService.getList()
             .observeOn(mainScheduler)
             .subscribeOn(ioScheduler)
             .doOnSubscribe {
                 callback?.onStart()
             }
-            .subscribe(object : Observer<List<Imovel>?> {
+            .subscribe(object: Observer<List<Imovel>?>{
                 override fun onError(e: Throwable?) {
-                    callback?.onError()
+                    callback?.onError(e?.message.toString())
                 }
 
                 override fun onNext(response: List<Imovel>?) {
                     if(response.isNullOrEmpty()){
-                        callback?.onError()
+                        callback?.onError("vazio")
                     }else{
                         zapUseCase = ZapUseCase(response)
                         vivaRealUseCase = VivaRealUseCase(response)
 
-                        callback?.onSuccess(response)
+                        callback?.onSuccess()
                     }
                 }
 
@@ -62,12 +64,9 @@ class ListRepository(
                 }
 
                 override fun onSubscribe(d: Disposable?) {}
-
             })
     }
 
 
-    fun getZapList() : List<Imovel>? = zapUseCase?.getList()
-    fun getVivaRealList(): List<Imovel>? = vivaRealUseCase?.getList()
 
 }
