@@ -12,14 +12,16 @@ object Mocks{
     fun getListMock(): List<Imovel>{
         var list = ArrayList<Imovel>()
 
-        var imovel = Imovel().apply {
+        list.add(getImovel())
+        return list
+    }
+
+    fun getImovel(): Imovel{
+        return Imovel().apply {
             usableAreas = 12456.0
             address = getAddress()
-            pricingInfos = getPricingInfo()
+            pricingInfos = getPricingInfoRental()
         }
-
-        list.add(imovel)
-        return list
     }
 
     fun getAddress(): Address {
@@ -34,26 +36,39 @@ object Mocks{
     fun getGeoLocation(): Geolocation {
         return Geolocation().apply {
             precision = "Precision"
-            location = getLocation()
+            location = getLocationInsideBox()
         }
     }
 
-    fun getLocation(): Location {
+
+
+    fun getPricingInfoRental(): PricingInfo {
+        return PricingInfo().apply{
+            price = 4000.0
+            businessType = BusinessType.RENTAL.name
+            monthlyCondoFee = "500"
+        }
+    }
+
+    fun getPricingInfoSales(): PricingInfo {
+        return PricingInfo().apply{
+            price = 600000.0
+            businessType = BusinessType.SALE.name
+        }
+    }
+
+    fun getLocationInsideBox():Location{
+        return Location().apply {
+            lat = -23.558704
+            lon = -46.673419
+
+        }
+    }
+
+    fun getLocationOutBox(): Location {
         return Location().apply {
             lat = 10.0
             lon = -20.0
         }
-    }
-
-    fun getPricingInfo(value: Double = 700000.0,
-                               monthly: String = "3500",
-                               type: BusinessType = BusinessType.RENTAL): PricingInfo {
-
-        return PricingInfo().apply{
-            price = value
-            businessType = type.name
-            monthlyCondoFee = monthly
-        }
-
     }
 }

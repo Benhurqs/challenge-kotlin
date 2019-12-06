@@ -1,8 +1,7 @@
-package com.benhurqs.network.domain.usecase
+package com.benhurqs.network.domain.usecase.usacase
 
 import com.benhurqs.network.Utils.Mocks.getAddress
 import com.benhurqs.network.Utils.Mocks.getListMock
-import com.benhurqs.network.Utils.Mocks.getPricingInfo
 import com.benhurqs.network.domain.model.Imovel
 import com.benhurqs.network.domain.model.address.Address
 import com.benhurqs.network.domain.model.address.Geolocation
@@ -19,7 +18,8 @@ class ListUseCaseTest{
     @Test
     fun `Check if address != null return list`(){
         var list = getListMock()
-        var testUseCase = TestUseCase(list)
+        var testUseCase =
+            TestUseCase(list)
         assertFalse(testUseCase.getList().isNullOrEmpty())
         assertTrue(list == testUseCase.getList())
     }
@@ -30,12 +30,12 @@ class ListUseCaseTest{
         list.add(
             Imovel().apply {
                 address = getAddress()
-                pricingInfos = getPricingInfo()
                 address = null
             }
         )
 
-        var testUseCase = TestUseCase(list)
+        var testUseCase =
+            TestUseCase(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -46,14 +46,14 @@ class ListUseCaseTest{
         list.add(
             Imovel().apply {
                 address = getAddress()
-                pricingInfos = getPricingInfo()
                 address = Address().apply {
                     geoLocation = null
                 }
             }
         )
 
-        var testUseCase = TestUseCase(list)
+        var testUseCase =
+            TestUseCase(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -64,7 +64,6 @@ class ListUseCaseTest{
         list.add(
             Imovel().apply {
                 address = getAddress()
-                pricingInfos = getPricingInfo()
                 address = Address().apply {
                     geoLocation = Geolocation().apply {
                         location = null
@@ -73,7 +72,8 @@ class ListUseCaseTest{
             }
         )
 
-        var testUseCase = TestUseCase(list)
+        var testUseCase =
+            TestUseCase(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -84,7 +84,6 @@ class ListUseCaseTest{
         list.add(
             Imovel().apply {
                 address = getAddress()
-                pricingInfos = getPricingInfo()
                 address = Address().apply {
                     geoLocation = Geolocation().apply {
                         location = Location().apply {
@@ -96,7 +95,8 @@ class ListUseCaseTest{
             }
         )
 
-        var testUseCase = TestUseCase(list)
+        var testUseCase =
+            TestUseCase(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -107,7 +107,6 @@ class ListUseCaseTest{
         list.add(
             Imovel().apply {
                 address = getAddress()
-                pricingInfos = getPricingInfo()
                 address = Address().apply {
                     geoLocation = Geolocation().apply {
                         location = Location().apply {
@@ -119,7 +118,8 @@ class ListUseCaseTest{
             }
         )
 
-        var testUseCase = TestUseCase(list)
+        var testUseCase =
+            TestUseCase(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -130,7 +130,6 @@ class ListUseCaseTest{
         list.add(
             Imovel().apply {
                 address = getAddress()
-                pricingInfos = getPricingInfo()
                 address = Address().apply {
                     geoLocation = Geolocation().apply {
                         location = Location().apply {
@@ -142,7 +141,8 @@ class ListUseCaseTest{
             }
         )
 
-        var testUseCase = TestUseCase(list)
+        var testUseCase =
+            TestUseCase(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -153,7 +153,6 @@ class ListUseCaseTest{
         list.add(
             Imovel().apply {
                 address = getAddress()
-                pricingInfos = getPricingInfo()
                 address = Address().apply {
                     geoLocation = Geolocation().apply {
                         location = Location().apply {
@@ -165,7 +164,8 @@ class ListUseCaseTest{
             }
         )
 
-        var testUseCase = TestUseCase(list)
+        var testUseCase =
+            TestUseCase(list)
         assertTrue(testUseCase.getList().isNullOrEmpty())
         assertFalse(list == testUseCase.getList())
     }
@@ -173,7 +173,8 @@ class ListUseCaseTest{
     @Test
     fun `Check if insideBoundingBox == false when lat = 0 `(){
 
-        var testUseCase = TestUseCase(getListMock())
+        var testUseCase =
+            TestUseCase(getListMock())
         val location = Location().apply {
             lat = 0.0
             lon =  -46.641146
@@ -187,7 +188,8 @@ class ListUseCaseTest{
     @Test
     fun `Check if insideBoundingBox == false when lon = 0 `(){
 
-        var testUseCase = TestUseCase(getListMock())
+        var testUseCase =
+            TestUseCase(getListMock())
         val location = Location().apply {
             lat = -23.568704
             lon =  0.0
@@ -200,7 +202,8 @@ class ListUseCaseTest{
     @Test
     fun `Check if insideBoundingBox == true when the location is on the max border`(){
 
-        var testUseCase = TestUseCase(getListMock())
+        var testUseCase =
+            TestUseCase(getListMock())
         val location = Location().apply {
             lat = -23.546686
             lon = -46.641146
@@ -212,7 +215,8 @@ class ListUseCaseTest{
     @Test
     fun `Check if insideBoundingBox == true when the location is on the min border`(){
 
-        var testUseCase = TestUseCase(getListMock())
+        var testUseCase =
+            TestUseCase(getListMock())
         val location = Location().apply {
             lat = -23.568704
             lon = -46.693419
@@ -225,7 +229,8 @@ class ListUseCaseTest{
     @Test
     fun `Check if insideBoundingBox == true when the location is inside box`(){
 
-        var testUseCase = TestUseCase(getListMock())
+        var testUseCase =
+            TestUseCase(getListMock())
         val location = Location().apply {
             lat = -23.558704
             lon = -46.673419
