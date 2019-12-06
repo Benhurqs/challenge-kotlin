@@ -6,7 +6,8 @@ import com.benhurqs.network.domain.model.Imovel
 import com.benhurqs.network.domain.model.address.Address
 import com.benhurqs.network.domain.model.address.Geolocation
 import com.benhurqs.network.domain.model.address.Location
-import org.junit.Assert.*
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 

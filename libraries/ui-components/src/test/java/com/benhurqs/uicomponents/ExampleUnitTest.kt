@@ -1,4 +1,4 @@
-package com.benhurqs.zapchallenge
+package com.benhurqs.uicomponents
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

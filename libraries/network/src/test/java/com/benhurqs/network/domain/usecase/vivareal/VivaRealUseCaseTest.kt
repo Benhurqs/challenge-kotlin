@@ -3,7 +3,8 @@ package com.benhurqs.network.domain.usecase.vivareal
 import TestVivaRealUseCaseHelper
 import com.benhurqs.network.Utils.Mocks
 import com.benhurqs.network.domain.model.BusinessType
-import org.junit.Assert.*
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 

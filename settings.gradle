@@ -1,7 +1,7 @@
 include ':app'
 
 //library
-include ':libraries:network', ':libraries:actions'
+include ':libraries:network', ':libraries:actions', ':libraries:ui-components'
 
 //features
 include ':features:detail', ':features:mainlist'
