@@ -7,6 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".ListActivity">
 
+    <Button
+        android:id="@+id/filter_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filtro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias="1"
+        android:onClick="openFilter"/>
+
     <TextView
         android:id="@+id/list_title"
         android:layout_width="wrap_content"
@@ -39,12 +52,23 @@
         app:layout_constraintTop_toBottomOf="@+id/list_title" />
 
     <include
-        android:id="@+id/laoding_content"
-        layout="@layout/loading_content"
+        android:id="@+id/filter"
+        layout="@layout/activity_filter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <include
+        android:id="@+id/laoding_content"
+        layout="@layout/loading_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
