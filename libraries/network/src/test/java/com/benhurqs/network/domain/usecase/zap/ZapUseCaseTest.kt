@@ -2,6 +2,7 @@ package com.benhurqs.network.domain.usecase.zap
 
 import com.benhurqs.network.Utils.Mocks
 import com.benhurqs.network.domain.model.BusinessType
+import com.benhurqs.network.domain.model.PricingInfo
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -53,9 +54,23 @@ class ZapUseCaseTest{
 
 
     @Test
-    fun `Check usable area condition when area conditional is not 0`(){
+    fun `Check usable area condition when price usable area is lower than 3500`(){
         val imovel = Mocks.getImovel()
         imovel.usableAreas = 10.0
+        imovel.pricingInfos = PricingInfo().apply {
+            price = 35000.0
+        }
+
+        Assert.assertFalse(zapUseCase.checkUsableAreasCondition(imovel))
+    }
+
+    @Test
+    fun `Check usable area condition when price usable area is higher than 3500`(){
+        val imovel = Mocks.getImovel()
+        imovel.usableAreas = 10.0
+        imovel.pricingInfos = PricingInfo().apply {
+            price = 45000.0
+        }
 
         Assert.assertTrue(zapUseCase.checkUsableAreasCondition(imovel))
     }

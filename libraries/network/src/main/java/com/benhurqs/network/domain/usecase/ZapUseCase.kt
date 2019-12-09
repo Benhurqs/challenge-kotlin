@@ -30,10 +30,14 @@ open class ZapUseCase(cachedList: List<Imovel>) : ListUseCase(cachedList){
     O valor do metro quadrado (chave usableAreas) não pode ser menor/igual a R$ 3.500,00 - apenas considerando imóveis que tenham usableAreas acima de 0 (imóveis com usableAreas = 0 não são elegíveis).
 
      */
-
-    //TODO entender essa condição
     protected fun usableAreasCondition(imovel: Imovel): Boolean{
-        return imovel.usableAreas > 0
+        if(imovel.usableAreas > 0){
+            val usablePrice = imovel.pricingInfos!!.price / imovel.usableAreas
+            return usablePrice > 3500
+        }
+
+        return false
+
     }
 
     /**
