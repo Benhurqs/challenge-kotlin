@@ -6,10 +6,9 @@ import com.benhurqs.mainlist.presentation.contract.MainListView
 import com.benhurqs.network.data.APICallback
 import com.benhurqs.network.domain.repository.ListRepository
 
-class ListPresenter(val view: MainListView) : MainListPresenter, APICallback{
+class ListPresenter(val view: MainListView, val repository: ListRepository) : MainListPresenter, APICallback{
 
     var hasBrandSelected = false
-    var repository = ListRepository.getInstance()
 
     override fun callAPI() {
         repository.callListAPI(this)

@@ -12,7 +12,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
-class ListRepository(
+open class ListRepository(
     val apiService: ZapAPIService = ZapAPIService(),
     val ioScheduler: Scheduler = Schedulers.io(),
     val mainScheduler: Scheduler = AndroidSchedulers.mainThread()) {
@@ -33,10 +33,10 @@ class ListRepository(
         }
     }
 
-    fun getZapList() : List<Imovel>? = zapUseCase?.getList()
-    fun getVivaRealList(): List<Imovel>? = vivaRealUseCase?.getList()
+    open fun getZapList() : List<Imovel>? = zapUseCase?.getList()
+    open fun getVivaRealList(): List<Imovel>? = vivaRealUseCase?.getList()
 
-    fun callListAPI(callback: APICallback? = null) {
+    open fun callListAPI(callback: APICallback? = null) {
         apiService.getList()
             .observeOn(mainScheduler)
             .subscribeOn(ioScheduler)

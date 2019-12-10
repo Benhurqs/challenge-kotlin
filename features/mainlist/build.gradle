@@ -34,6 +34,12 @@ dependencies {
     implementation "com.android.support:design:$android_support_version"
     testImplementation 'junit:junit:4.12'
 
+    //Mockito
+    testImplementation "org.mockito:mockito-core:$mockitoCoreVersion"
+
+    //RxAndroid
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid"
 
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"

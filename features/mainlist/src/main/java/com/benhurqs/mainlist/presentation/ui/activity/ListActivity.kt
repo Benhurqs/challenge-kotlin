@@ -27,13 +27,14 @@ class ListActivity : AppCompatActivity(), MainListView{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_list)
 
+        presenter = ListPresenter(this, ListRepository.getInstance())
+        presenter?.callAPI()
     }
 
     override fun onStart() {
         super.onStart()
 
-        presenter = ListPresenter(this)
-        presenter?.callAPI()
+
 
         filter_btn.setOnClickListener { presenter?.managerFilter() }
         filter_close_btn.setOnClickListener { hideFilter() }
