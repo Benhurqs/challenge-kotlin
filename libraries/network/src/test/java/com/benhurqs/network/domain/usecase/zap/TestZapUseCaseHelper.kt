@@ -1,6 +1,6 @@
 package com.benhurqs.network.domain.usecase.zap
 
-import com.benhurqs.network.domain.model.Imovel
+import com.benhurqs.base.model.Imovel
 import com.benhurqs.network.domain.usecase.ZapUseCase
 
 class TestZapUseCaseHelper(list: List<Imovel>): ZapUseCase(list){

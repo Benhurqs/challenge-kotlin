@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rental">Aluguel</string>
+    <string name="sales">Venda</string>
+    <string name="rental_price">%1$s/mês</string>
+    <string name="description">%1$d quarto(s) | %2$d banheiro(s) | %3$d vaga(s) | %4$s m²</string>
+</resources>

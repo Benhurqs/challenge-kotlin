@@ -2,7 +2,7 @@ package com.benhurqs.network.domain.repository
 
 import com.benhurqs.network.data.APICallback
 import com.benhurqs.network.data.ZapAPIService
-import com.benhurqs.network.domain.model.Imovel
+import com.benhurqs.base.model.Imovel
 import com.benhurqs.network.domain.usecase.ListUseCase
 import com.benhurqs.network.domain.usecase.VivaRealUseCase
 import com.benhurqs.network.domain.usecase.ZapUseCase

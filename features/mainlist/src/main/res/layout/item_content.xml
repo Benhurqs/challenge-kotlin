@@ -16,13 +16,35 @@
         android:layout_marginRight="16dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/item_image_1"
+        <RelativeLayout
             android:layout_width="0dp"
             android:layout_weight="0.6"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:background="@color/image_bg"/>
+            android:layout_height="200dp">
+
+            <ImageView
+                android:id="@+id/item_image_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="@color/image_bg"/>
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Venda"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:textSize="11sp"
+                android:background="@color/price_color"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/roboto_medium"/>
+
+        </RelativeLayout>
+
+
 
         <LinearLayout
             android:id="@+id/item_images_content"
@@ -52,13 +74,24 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/item_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="2"
         android:ellipsize="end"
         android:textColor="@color/title_color"
         android:layout_marginRight="16dp"
-        android:text="Casa de teste de cada um d"
+        android:layout_marginLeft="16dp"
+        android:fontFamily="@font/montserrat"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="@color/price_color"
+        android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/montserrat_bold"/>

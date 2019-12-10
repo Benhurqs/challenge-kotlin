@@ -1,8 +1,8 @@
 package com.benhurqs.network.domain.usecase
 
-import com.benhurqs.network.domain.model.Imovel
-import com.benhurqs.network.domain.model.address.Geolocation
-import com.benhurqs.network.domain.model.address.Location
+import com.benhurqs.base.model.Imovel
+import com.benhurqs.base.model.address.Geolocation
+import com.benhurqs.base.model.address.Location
 
 abstract class ListUseCase(cachedList: List<Imovel>){
 

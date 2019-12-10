@@ -1,11 +1,11 @@
 package com.benhurqs.network.Utils
 
-import com.benhurqs.network.domain.model.BusinessType
-import com.benhurqs.network.domain.model.Imovel
-import com.benhurqs.network.domain.model.PricingInfo
-import com.benhurqs.network.domain.model.address.Address
-import com.benhurqs.network.domain.model.address.Geolocation
-import com.benhurqs.network.domain.model.address.Location
+import com.benhurqs.base.model.BusinessType
+import com.benhurqs.base.model.Imovel
+import com.benhurqs.base.model.PricingInfo
+import com.benhurqs.base.model.address.Address
+import com.benhurqs.base.model.address.Geolocation
+import com.benhurqs.base.model.address.Location
 
 object Mocks{
 

@@ -1,4 +1,4 @@
-import com.benhurqs.network.domain.model.Imovel
+import com.benhurqs.base.model.Imovel
 import com.benhurqs.network.domain.usecase.VivaRealUseCase
 
 class TestVivaRealUseCaseHelper(list: List<Imovel>) : VivaRealUseCase(list){

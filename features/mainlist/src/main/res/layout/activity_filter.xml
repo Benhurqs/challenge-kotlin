@@ -60,7 +60,7 @@
         android:fontFamily="@font/roboto_light"
         android:gravity="center"
         android:minWidth="200dp"
-        android:onClick="loadRealList"
+        android:onClick="loadZapList"
         android:paddingLeft="50dp"
         android:paddingTop="20dp"
         android:paddingRight="50dp"

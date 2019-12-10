@@ -1,8 +1,8 @@
 package com.benhurqs.network.domain.usecase.zap
 
 import com.benhurqs.network.Utils.Mocks
-import com.benhurqs.network.domain.model.BusinessType
-import com.benhurqs.network.domain.model.PricingInfo
+import com.benhurqs.base.model.BusinessType
+import com.benhurqs.base.model.PricingInfo
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test

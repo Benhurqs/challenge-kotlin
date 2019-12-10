@@ -41,7 +41,7 @@ dependencies {
     implementation project(path: ':features:detail')
     implementation project(path: ':features:mainlist')
 
-    implementation project(path: ':libraries:actions')
+    implementation project(path: ':libraries:base')
     implementation project(path: ':libraries:ui-components')
 
 

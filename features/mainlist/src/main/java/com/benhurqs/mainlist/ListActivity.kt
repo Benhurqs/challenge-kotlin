@@ -7,13 +7,11 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.airbnb.lottie.LottieComposition
-import com.airbnb.lottie.LottieDrawable
 import com.benhurqs.mainlist.presentation.adapter.ListAdapter
 import com.benhurqs.network.data.APICallback
-import com.benhurqs.network.domain.model.Imovel
+import com.benhurqs.base.model.Imovel
 import com.benhurqs.network.domain.repository.ListRepository
-import com.benhurqs.uicomponents.AnimationView
+import com.benhurqs.uicomponents.animation.AnimationView
 import kotlinx.android.synthetic.main.activity_filter.*
 import kotlinx.android.synthetic.main.activity_main_list.*
 import kotlinx.android.synthetic.main.loading_content.*
@@ -26,26 +24,11 @@ class ListActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_list)
+
+        callAPI()
     }
 
-    override fun onStart() {
-        super.onStart()
-//        laoding_content.visibility = View.GONE
-//        filter.visibility = View.VISIBLE
-
-
-//        val drawable = LottieDrawable()
-//
-//        LottieComposition.Factory.fromAssetFileName(
-//            this,
-//            "close.json"
-//        ) { composition: LottieComposition? ->
-//            drawable.composition = composition
-//            drawable.playAnimation()
-//            drawable.scale = 3f
-//            filter_btn.setImageDrawable(drawable)
-//        }
-
+    private fun callAPI(){
         repository.callListAPI(object : APICallback {
             override fun onStart() {
                 filter.visibility = View.VISIBLE
@@ -56,22 +39,11 @@ class ListActivity : AppCompatActivity(){
             override fun onError(error: String?) {
             }
 
-            override fun onFinish() {
-                laoding_content.visibility = View.GONE
-                list_loading.pauseAnimation()
-            }
+            override fun onFinish() {}
 
             override fun onSuccess() {
-                var viva = repository.getVivaRealList()
-                var zap = repository.getZapList()
-
-                Log.e("Viva", viva?.size.toString())
-                Log.e("Zap", zap?.size.toString())
-
-                Log.e("Viva - 1", viva?.get(0)?.id)
-                Log.e("Zap - 1", zap?.get(0)?.id)
-
-//                iniList(viva)
+                laoding_content.visibility = View.GONE
+                list_loading.pauseAnimation()
             }
         })
     }
@@ -84,10 +56,12 @@ class ListActivity : AppCompatActivity(){
 
     fun loadVivaList(view: View?){
         iniList(repository.getVivaRealList())
+        list_title.text = "Viva Real"
     }
 
-    fun loadRealList(view: View?){
+    fun loadZapList(view: View?){
         iniList(repository.getZapList())
+        list_title.text = "Zap"
 
     }
 
@@ -97,7 +71,8 @@ class ListActivity : AppCompatActivity(){
         filter.post(object : Runnable {
             override fun run() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    AnimationView.startRevealCircularAnimation(filter, filter_btn.x.toInt(), filter_btn.y.toInt(), object :AnimationView.AnimatorViewListener{
+                    AnimationView.startRevealCircularAnimation(filter, filter_btn.x.toInt(), filter_btn.y.toInt(), object :
+                        AnimationView.AnimatorViewListener{
                         override fun onAnimationEnd(animation: Animator?) {
 
                         }
@@ -115,7 +90,8 @@ class ListActivity : AppCompatActivity(){
 
     fun closeFilter(view: View?){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            AnimationView.endRevealCircularAnimation(filter, filter_btn.x.toInt(), filter_btn.y.toInt(), object :AnimationView.AnimatorViewListener{
+            AnimationView.endRevealCircularAnimation(filter, filter_btn.x.toInt(), filter_btn.y.toInt(), object :
+                AnimationView.AnimatorViewListener{
                 override fun onAnimationEnd(animation: Animator?) {
                     filter.visibility = View.GONE
                 }

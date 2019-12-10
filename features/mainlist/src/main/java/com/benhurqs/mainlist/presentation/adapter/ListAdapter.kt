@@ -5,10 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.benhurqs.mainlist.R
-import com.benhurqs.network.domain.model.Imovel
-import com.benhurqs.uicomponents.ImageUtils
+import com.benhurqs.base.model.BusinessType
+import com.benhurqs.base.model.Imovel
+import com.benhurqs.base.model.PricingInfo
+import com.benhurqs.base.utils.ImovelFormatedUtils
 import com.benhurqs.uicomponents.adapter.DefaultViewHolder
 import kotlinx.android.synthetic.main.item_content.view.*
+import java.text.NumberFormat
+import java.util.*
 
 class ListAdapter(val list: List<Imovel>)  : RecyclerView.Adapter<DefaultViewHolder>() {
 
@@ -30,17 +34,20 @@ class ListAdapter(val list: List<Imovel>)  : RecyclerView.Adapter<DefaultViewHol
         if(!item.images.isNullOrEmpty()){
             if(item.images!!.size > 3){
                 view.item_images_content.visibility = View.VISIBLE
-                ImageUtils.loadImage(view.item_image_2, item.images!![1])
-                ImageUtils.loadImage(view.item_image_3, item.images!![2])
+                com.benhurqs.base.utils.ImageUtils.loadImage(view.item_image_2, item.images!![1])
+                com.benhurqs.base.utils.ImageUtils.loadImage(view.item_image_3, item.images!![2])
             }else{
                 view.item_images_content.visibility = View.GONE
             }
 
-            ImageUtils.loadImage(view.item_image_1, item.images!![0])
+            com.benhurqs.base.utils.ImageUtils.loadImage(view.item_image_1, item.images!![0])
+
+            view.item_description.text = ImovelFormatedUtils.getDescription(view.context, item)
+            view.price.text = ImovelFormatedUtils.formatPrice(view.context, item)
+            view.type.text = ImovelFormatedUtils.getBussinessType(view.context, item)
         }
-
-
-
-
     }
+
+
+
 }

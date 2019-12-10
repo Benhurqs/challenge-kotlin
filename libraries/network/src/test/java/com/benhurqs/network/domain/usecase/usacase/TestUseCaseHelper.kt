@@ -1,7 +1,7 @@
 package com.benhurqs.network.domain.usecase.usacase
 
-import com.benhurqs.network.domain.model.Imovel
-import com.benhurqs.network.domain.model.address.Location
+import com.benhurqs.base.model.Imovel
+import com.benhurqs.base.model.address.Location
 import com.benhurqs.network.domain.usecase.ListUseCase
 
 class TestUseCaseHelper(cachedList: List<Imovel>) : ListUseCase(cachedList){

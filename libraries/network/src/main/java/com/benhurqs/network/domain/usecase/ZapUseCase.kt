@@ -1,7 +1,7 @@
 package com.benhurqs.network.domain.usecase
 
-import com.benhurqs.network.domain.model.BusinessType
-import com.benhurqs.network.domain.model.Imovel
+import com.benhurqs.base.model.BusinessType
+import com.benhurqs.base.model.Imovel
 
 open class ZapUseCase(cachedList: List<Imovel>) : ListUseCase(cachedList){
 
