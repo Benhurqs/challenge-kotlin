@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MainList</string>
+    <string name="viva_real">Viva Real</string>
+    <string name="zap">Zap</string>
 </resources>
