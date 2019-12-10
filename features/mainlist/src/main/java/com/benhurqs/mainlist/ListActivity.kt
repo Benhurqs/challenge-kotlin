@@ -5,17 +5,19 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.airbnb.lottie.LottieComposition
+import com.airbnb.lottie.LottieDrawable
 import com.benhurqs.mainlist.presentation.adapter.ListAdapter
 import com.benhurqs.network.data.APICallback
 import com.benhurqs.network.domain.model.Imovel
 import com.benhurqs.network.domain.repository.ListRepository
 import com.benhurqs.uicomponents.AnimationView
+import kotlinx.android.synthetic.main.activity_filter.*
 import kotlinx.android.synthetic.main.activity_main_list.*
 import kotlinx.android.synthetic.main.loading_content.*
+
 
 class ListActivity : AppCompatActivity(){
 
@@ -28,6 +30,21 @@ class ListActivity : AppCompatActivity(){
 
     override fun onStart() {
         super.onStart()
+//        laoding_content.visibility = View.GONE
+//        filter.visibility = View.VISIBLE
+
+
+//        val drawable = LottieDrawable()
+//
+//        LottieComposition.Factory.fromAssetFileName(
+//            this,
+//            "close.json"
+//        ) { composition: LottieComposition? ->
+//            drawable.composition = composition
+//            drawable.playAnimation()
+//            drawable.scale = 3f
+//            filter_btn.setImageDrawable(drawable)
+//        }
 
         repository.callListAPI(object : APICallback {
             override fun onStart() {
@@ -62,7 +79,7 @@ class ListActivity : AppCompatActivity(){
     private fun iniList(list: List<Imovel>?){
         list_recyclerview.layoutManager = LinearLayoutManager(this@ListActivity, LinearLayoutManager.VERTICAL, false)
         list_recyclerview.adapter = ListAdapter(list!!)
-        closeFilter()
+        closeFilter(null)
     }
 
     fun loadVivaList(view: View?){
@@ -71,14 +88,12 @@ class ListActivity : AppCompatActivity(){
 
     fun loadRealList(view: View?){
         iniList(repository.getZapList())
+
     }
 
     fun openFilter(view: View?){
-//        filter.visibility = View.VISIBLE
-//        if(filter.isVisible){
-//            filter.visibility = View.GONE
-//            return
-//        }
+        filter_close_btn.playAnimation()
+
         filter.post(object : Runnable {
             override fun run() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -98,22 +113,18 @@ class ListActivity : AppCompatActivity(){
 
     }
 
-    fun closeFilter(){
-        filter.visibility = View.GONE
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            AnimationView.endRevealCircularAnimation(filter, filter_btn.x.toInt(), filter_btn.y.toInt(), object :AnimationView.AnimatorViewListener{
-//                override fun onAnimationEnd(animation: Animator?) {
-//                    filter.visibility = View.GONE
-//                }
-//
-//                override fun onAnimationStart(animation: Animator?) {
-//
-//                }
-//            })
-//        }
+    fun closeFilter(view: View?){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            AnimationView.endRevealCircularAnimation(filter, filter_btn.x.toInt(), filter_btn.y.toInt(), object :AnimationView.AnimatorViewListener{
+                override fun onAnimationEnd(animation: Animator?) {
+                    filter.visibility = View.GONE
+                }
+
+                override fun onAnimationStart(animation: Animator?) {
+
+                }
+            })
+        }
     }
 
-    private fun startAnimation(centerX: Int, centerY: Int) {
-
-    }
 }

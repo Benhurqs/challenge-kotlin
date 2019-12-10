@@ -33,44 +33,6 @@ object AnimationView{
     }
 
 
-
-    private fun animationUtil(animation: Int, slideIn: Boolean ,context: Context, view: View, listener: AnimationViewListener? = null){
-        val animator = AnimationUtils.loadAnimation(context, animation)
-        animator.setAnimationListener(object : Animation.AnimationListener{
-            override fun onAnimationRepeat(animation: Animation?) {
-//                if(listener != null){
-//                    listener.onAnimationRepeat(animation)
-//                }
-            }
-
-            override fun onAnimationEnd(animation: Animation?) {
-                managerViewVisibility(slideIn, view)
-                if(listener != null){
-                    listener.onAnimationEnd(animation)
-                }
-
-            }
-
-            override fun onAnimationStart(animation: Animation?) {
-                managerViewVisibility(!slideIn, view)
-                if(listener != null){
-                    listener.onAnimationStart(animation)
-                }
-
-            }
-        })
-
-        view.startAnimation(animator)
-    }
-
-    private fun managerViewVisibility(slideIn: Boolean, view: View){
-        if(slideIn){
-            view.visibility = View.VISIBLE
-        }else {
-            view.visibility = View.INVISIBLE
-        }
-    }
-
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun startRevealCircularAnimation(view: View, centerX: Int, centerY: Int, listener: AnimationView.AnimatorViewListener? = null){
         animation(view,
@@ -96,8 +58,9 @@ object AnimationView{
         var anim = ViewAnimationUtils.createCircularReveal(view,
             centerX,
             centerY,
-            0f,
-            Math.max(view.width.toFloat(), view.height.toFloat()))
+            start,
+            end)
+
         anim.duration = 500
         anim.addListener(object : Animator.AnimatorListener{
             override fun onAnimationRepeat(animation: Animator?) {
