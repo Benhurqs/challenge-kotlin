@@ -7,7 +7,7 @@ Existem 3 views principais:
 - List: É responsável por exibir os imóveis, assim como suas informações;
 - Filter: É utilizado para filtrar entre as diferentes portais Viva Real e Zap; (Futuramente, caso o numero de filtros aumente, poderá se tornar um modulo) 
 
-![Alt text](./imgs/mainlist.png?raw=true) 
+![Alt text](../../imgs/mainlist.png?raw=true) 
 
 ## Arquitetura 
 
