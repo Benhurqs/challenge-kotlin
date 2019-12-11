@@ -22,7 +22,7 @@ A organização de pastas é feita por tipo:
 
 ### Fluxo
 
-![MainList fluxo](../../imgs/mainlist.png?raw=true) 
+![MainList fluxo](../../imgs/mainListFluxo.png?raw=true) 
 
-![MainList fluxo 2](../../imgs/mainlist2.png?raw=true) 
+![MainList fluxo 2](../../imgs/mainListFluxo2.png?raw=true) 
  
