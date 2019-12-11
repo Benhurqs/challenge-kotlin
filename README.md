@@ -19,8 +19,8 @@ Existem 5 módulos separados em dois tipos:
 - [Ui-Components](./libraries/ui-components/README.md)
 
 #### Features: 
-- [MainList](./features/detail/README.md)  
-- [Detail](./features/mainlist/README.md)
+- [MainList](./features/mainlist/README.md)  
+- [Detail](./features/detail/README.md)
 
 
 ![Alt text](./imgs/modules.png?raw=true) 
