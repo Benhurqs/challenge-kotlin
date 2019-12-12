@@ -15,6 +15,7 @@ import com.benhurqs.mainlist.presentation.contract.MainListView
 import com.benhurqs.mainlist.presentation.presenter.ListPresenter
 import com.benhurqs.network.domain.repository.ListRepository
 import com.benhurqs.uicomponents.animation.AnimationView
+import com.benhurqs.uicomponents.ui.views.ErrorViewRender
 import kotlinx.android.synthetic.main.activity_filter.*
 import kotlinx.android.synthetic.main.activity_main_list.*
 import kotlinx.android.synthetic.main.loading_content.*
@@ -34,13 +35,11 @@ class ListActivity : AppCompatActivity(), MainListView{
     override fun onStart() {
         super.onStart()
 
-
-
         filter_btn.setOnClickListener { presenter?.managerFilter() }
         filter_close_btn.setOnClickListener { hideFilter() }
         filter_viva_real.setOnClickListener { presenter?.loadVivaReal() }
         filter_zap.setOnClickListener { presenter?.loadZap() }
-
+        (error_content as ErrorViewRender).setOnClickRetry { presenter?.callAPI() }
     }
 
 
@@ -66,11 +65,11 @@ class ListActivity : AppCompatActivity(), MainListView{
     }
 
     override fun showError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        error_content.visibility = View.VISIBLE
     }
 
     override fun hideError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        error_content.visibility = View.GONE
     }
 
     override fun showFilter() {

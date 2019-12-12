@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ZapChallenge</string>
+    <string name="error_msg">Não conseguimos achar seu novo lar por causa de algum probleminha com nosso sistema, mas é só clicar logo ali embaixo que vamos tentar novamente!</string>
+    <string name="retry">Tentar novamente</string>
 </resources>

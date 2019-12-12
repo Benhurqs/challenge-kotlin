@@ -95,6 +95,7 @@ class ListPresenterTest{
 
         Mockito.verify(view, Mockito.times(1)).isAdded()
         Mockito.verify(view, Mockito.times(1)).showProgress()
+        Mockito.verify(view, Mockito.times(1)).hideError()
     }
 
 
@@ -106,6 +107,7 @@ class ListPresenterTest{
 
         Mockito.verify(view, Mockito.times(1)).isAdded()
         Mockito.verify(view, Mockito.never()).showProgress()
+        Mockito.verify(view, Mockito.never()).hideError()
     }
 
     @Test

@@ -11,6 +11,7 @@ class ListPresenter(val view: MainListView, val repository: ListRepository) : Ma
     var hasBrandSelected = false
 
     override fun callAPI() {
+        hasBrandSelected = false
         repository.callListAPI(this)
     }
 
@@ -38,6 +39,7 @@ class ListPresenter(val view: MainListView, val repository: ListRepository) : Ma
 
     override fun onStart() {
         if(view.isAdded()){
+            view.hideError()
             view.showProgress()
         }
     }
