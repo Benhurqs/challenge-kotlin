@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.benhurqs.base.actions.Actions
 import com.benhurqs.mainlist.presentation.adapter.ListAdapter
 import com.benhurqs.network.data.APICallback
 import com.benhurqs.base.model.Imovel
@@ -47,7 +48,9 @@ class ListActivity : AppCompatActivity(), MainListView{
 
     override fun loadList(list: List<Imovel>) {
         list_recyclerview.layoutManager = LinearLayoutManager(this@ListActivity, LinearLayoutManager.VERTICAL, false)
-        list_recyclerview.adapter = ListAdapter(list)
+        list_recyclerview.adapter = ListAdapter(list){
+            startActivity(Actions.openDetailIntent(this))
+        }
     }
 
     override fun setTitle(title: String) {

@@ -5,16 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.benhurqs.mainlist.R
-import com.benhurqs.base.model.BusinessType
 import com.benhurqs.base.model.Imovel
-import com.benhurqs.base.model.PricingInfo
 import com.benhurqs.base.utils.ImovelFormatedUtils
 import com.benhurqs.uicomponents.adapter.DefaultViewHolder
 import kotlinx.android.synthetic.main.item_content.view.*
-import java.text.NumberFormat
-import java.util.*
 
-class ListAdapter(val list: List<Imovel>)  : RecyclerView.Adapter<DefaultViewHolder>() {
+class ListAdapter(val list: List<Imovel>, val onClickItem: (imovel: Imovel) -> Unit)  : RecyclerView.Adapter<DefaultViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         DefaultViewHolder(
@@ -41,10 +37,14 @@ class ListAdapter(val list: List<Imovel>)  : RecyclerView.Adapter<DefaultViewHol
             }
 
             com.benhurqs.base.utils.ImageUtils.loadImage(view.item_image_1, item.images!![0])
+        }
 
-            view.item_description.text = ImovelFormatedUtils.getDescription(view.context, item)
-            view.price.text = ImovelFormatedUtils.formatPrice(view.context, item)
-            view.type.text = ImovelFormatedUtils.getBussinessType(view.context, item)
+        view.item_description.text = ImovelFormatedUtils.getDescription(view.context, item)
+        view.price.text = ImovelFormatedUtils.formatPrice(view.context, item)
+        view.type.text = ImovelFormatedUtils.getBusinessType(view.context, item)
+
+        view.setOnClickListener {
+            onClickItem(item)
         }
     }
 

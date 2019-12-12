@@ -13,7 +13,7 @@ object ImovelFormatedUtils {
         return context.getString(R.string.description, imovel.bedrooms, imovel.bathrooms, imovel.parkingSpaces, imovel.usableAreas.toString())
     }
 
-    fun getBussinessType(context: Context, imovel: Imovel): String{
+    fun getBusinessType(context: Context, imovel: Imovel): String{
         return if(imovel.pricingInfos?.businessType == BusinessType.RENTAL.name){
             context.getString(R.string.rental)
         }else{
