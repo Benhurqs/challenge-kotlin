@@ -125,6 +125,7 @@ class ListActivityTest{
         callFuction { view.hideProgress() }
         callFuction { view.showFilter() }
         callFuction { view.showCloseFilter() }
+        callFuction { view.hideError() }
 
         Thread.sleep(1000)
         checkIfDisplayed(R.id.filter)
@@ -142,6 +143,7 @@ class ListActivityTest{
         callFuction { view.hideProgress() }
         callFuction { view.showFilter() }
         callFuction { view.showCloseFilter() }
+        callFuction { view.hideError() }
 
         Thread.sleep(1000)
         checkIfDisplayed(R.id.filter)
@@ -151,6 +153,25 @@ class ListActivityTest{
 
         checkIfNotDisplayed(R.id.filter)
         onView(withId(R.id.list_title)).check(ViewAssertions.matches(withText("Viva Real")))
+
+    }
+
+    @Test
+    fun test_click_error_retry(){
+        callFuction { view.hideProgress() }
+        callFuction { view.hideFilter() }
+        callFuction { view.showError() }
+
+        Thread.sleep(1000)
+        checkIfDisplayed(R.id.error_mesg)
+        checkIfDisplayed(R.id.error_retry)
+
+        onClickView(R.id.error_retry)
+        Thread.sleep(1000)
+
+        checkIfNotDisplayed(R.id.error_mesg)
+        checkIfNotDisplayed(R.id.error_retry)
+        checkIfDisplayed(R.id.laoding_content)
 
     }
 

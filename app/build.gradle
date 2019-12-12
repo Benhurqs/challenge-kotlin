@@ -44,5 +44,5 @@ dependencies {
     implementation project(path: ':libraries:base')
     implementation project(path: ':libraries:ui-components')
 
-
 }
+
