@@ -31,11 +31,14 @@ Existem 5 módulos separados em dois tipos:
 O aplicativo foi feito seguindo o MVP (Model - View - Presenter) e UseCases para as lógicas de negócio do Viva Real e Zap.
 
 
-### Camadas
+### Teste
+
+O código esta coberto com testes unitários e teste de interface.
+Abaixo as tasks para rodar todas os teste no código:
+
+- gradle connectedAndroidTest (Roda todos os testes de interface)
+- gradle test (Roda todos os teste unitários)
 
 
-- [DATA LAYER](./DATALAYER.md)
-- [PRESENTATION LAYER](./PRESENTATIONLAYER.md)
-- [DOMAIN LAYER](./DOMAINLAYER.md)
 
 
