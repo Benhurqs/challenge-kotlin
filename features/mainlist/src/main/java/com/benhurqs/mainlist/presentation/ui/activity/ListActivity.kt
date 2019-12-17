@@ -7,10 +7,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.benhurqs.base.actions.Actions
-import com.benhurqs.mainlist.presentation.adapter.ListAdapter
-import com.benhurqs.network.data.APICallback
 import com.benhurqs.base.model.Imovel
 import com.benhurqs.mainlist.R
+import com.benhurqs.mainlist.presentation.adapter.ListAdapter
 import com.benhurqs.mainlist.presentation.contract.MainListPresenter
 import com.benhurqs.mainlist.presentation.contract.MainListView
 import com.benhurqs.mainlist.presentation.presenter.ListPresenter

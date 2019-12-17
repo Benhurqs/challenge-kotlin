@@ -229,8 +229,7 @@
                 android:textSize="20sp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="R$ 5.000,00/ mês"/>
+                android:layout_marginBottom="16dp"/>
 
 
         </RelativeLayout>

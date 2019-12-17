@@ -1,7 +1,7 @@
 package com.benhurqs.network.data
 
-import com.benhurqs.network.BuildConfig
 import com.benhurqs.base.model.Imovel
+import com.benhurqs.network.BuildConfig
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

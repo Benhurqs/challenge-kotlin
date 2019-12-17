@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.benhurqs.mainlist.R
 import com.benhurqs.base.model.Imovel
 import com.benhurqs.base.utils.ImovelFormatedUtils
+import com.benhurqs.mainlist.R
 import com.benhurqs.uicomponents.adapter.DefaultViewHolder
 import kotlinx.android.synthetic.main.item_content.view.*
 

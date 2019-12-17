@@ -37,6 +37,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"
     androidTestImplementation "androidx.test:runner:$androidXTest"
     androidTestImplementation "androidx.test:rules:$androidXTest"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoCoreVersion"
 
     //Mockito
     testImplementation "org.mockito:mockito-core:$mockitoCoreVersion"

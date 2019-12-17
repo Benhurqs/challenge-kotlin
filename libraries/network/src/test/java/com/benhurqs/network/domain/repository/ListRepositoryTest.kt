@@ -1,8 +1,8 @@
 package com.benhurqs.network.domain.repository
 
+import com.benhurqs.base.model.Imovel
 import com.benhurqs.network.Utils.Mocks
 import com.benhurqs.network.data.APICallback
-import com.benhurqs.base.model.Imovel
 import io.reactivex.schedulers.Schedulers
 import org.junit.Assert
 import org.junit.Before

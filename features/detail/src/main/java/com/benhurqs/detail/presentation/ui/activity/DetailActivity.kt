@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : AppCompatActivity(), DetailView {
 
-    var imovel: Imovel? = null
     var presenter: DetailPresenterContract? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,10 +24,13 @@ class DetailActivity : AppCompatActivity(), DetailView {
     override fun onStart() {
         super.onStart()
 
-        imovel = intent.extras?.getSerializable(Actions.IMOVEL) as Imovel
-        detail_back.setOnClickListener { this.finish() }
-        presenter = DetailPresenter(this)
-        presenter?.managerData(imovel)
+        if(intent.hasExtra(Actions.IMOVEL)) {
+            detail_back.setOnClickListener { this.finish() }
+            presenter = DetailPresenter(this)
+            presenter?.managerData(intent.extras?.getSerializable(Actions.IMOVEL) as Imovel)
+        }else{
+            this.finish()
+        }
     }
 
     override fun loadImages(list: List<String>) {
@@ -66,7 +68,7 @@ class DetailActivity : AppCompatActivity(), DetailView {
             ImovelFormatedUtils.formatValue(iptu))
     }
 
-    override fun loadPrice() {
-        detail_price.text = ImovelFormatedUtils.formatPrice(this, imovel!!)
+    override fun loadPrice(imovel: Imovel) {
+        detail_price.text = ImovelFormatedUtils.formatPrice(this, imovel)
     }
 }

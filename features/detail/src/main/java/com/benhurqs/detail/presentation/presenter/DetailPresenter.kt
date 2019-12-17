@@ -10,7 +10,9 @@ class DetailPresenter (val view: DetailView): DetailPresenterContract{
     override fun managerData(imovel: Imovel?) {
         this.imovel = Imovel()
 
-        if(imovel?.pricingInfos != null){
+        if(imovel?.pricingInfos?.monthlyCondoFee != null &&
+            imovel.pricingInfos?.yearlyIptu != null){
+
             view.loadBathroom(imovel.bathrooms)
             view.loadBedroom(imovel.bedrooms)
             view.loadParking(imovel.parkingSpaces)
@@ -21,7 +23,7 @@ class DetailPresenter (val view: DetailView): DetailPresenterContract{
                 imovel.pricingInfos?.monthlyCondoFee!!,
                 imovel.pricingInfos?.yearlyIptu!!)
 
-            view.loadPrice()
+            view.loadPrice(imovel)
 
             if(!imovel.images.isNullOrEmpty()){
                 view.loadImages(imovel.images!!)

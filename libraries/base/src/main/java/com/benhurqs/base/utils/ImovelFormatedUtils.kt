@@ -35,7 +35,7 @@ object ImovelFormatedUtils {
         val nf = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
         nf.maximumFractionDigits = 2
 
-        var symbol: String? = nf.currency.symbol
+        var symbol: String? = nf.currency?.symbol
         var formattedSTR = nf.format(price)
         if (!symbol.isNullOrEmpty() && !symbol.contains(" ")) {
             formattedSTR = formattedSTR.replace(symbol, "$symbol ")

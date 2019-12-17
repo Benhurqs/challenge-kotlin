@@ -1,12 +1,11 @@
 package com.benhurqs.uicomponents.animation
 
-import androidx.annotation.RequiresApi
-
 
 import android.animation.Animator
 import android.os.Build
 import android.view.View
 import android.view.ViewAnimationUtils
+import androidx.annotation.RequiresApi
 
 /**
  * Created by benhur.souza on 15/02/18.

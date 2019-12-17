@@ -1,11 +1,11 @@
 package com.benhurqs.network.domain.usecase.usacase
 
-import com.benhurqs.network.Utils.Mocks.getAddress
-import com.benhurqs.network.Utils.Mocks.getListMock
 import com.benhurqs.base.model.Imovel
 import com.benhurqs.base.model.address.Address
 import com.benhurqs.base.model.address.Geolocation
 import com.benhurqs.base.model.address.Location
+import com.benhurqs.network.Utils.Mocks.getAddress
+import com.benhurqs.network.Utils.Mocks.getListMock
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before

@@ -31,7 +31,6 @@ class DetailPresenterTest{
         Mockito.verify(view, Mockito.never()).loadParking(Mockito.anyInt())
         Mockito.verify(view, Mockito.never()).loadBedroom(Mockito.anyInt())
         Mockito.verify(view, Mockito.never()).loadBathroom(Mockito.anyInt())
-        Mockito.verify(view, Mockito.never()).loadPrice()
         Mockito.verify(view, Mockito.never()).loadDescription(Mockito.anyInt(), Mockito.anyInt(), Mockito.anyInt(), Mockito.anyInt(), Mockito.anyString(), Mockito.anyFloat())
         Mockito.verify(view, Mockito.never()).loadImages(list)
     }
@@ -47,7 +46,6 @@ class DetailPresenterTest{
         Mockito.verify(view, Mockito.never()).loadParking(Mockito.anyInt())
         Mockito.verify(view, Mockito.never()).loadBedroom(Mockito.anyInt())
         Mockito.verify(view, Mockito.never()).loadBathroom(Mockito.anyInt())
-        Mockito.verify(view, Mockito.never()).loadPrice()
         Mockito.verify(view, Mockito.never()).loadDescription(Mockito.anyInt(), Mockito.anyInt(), Mockito.anyInt(), Mockito.anyInt(), Mockito.anyString(), Mockito.anyFloat())
         Mockito.verify(view, Mockito.never()).loadImages(list)
 
@@ -63,7 +61,7 @@ class DetailPresenterTest{
         val monthlyMock = "450"
         val iptuMock = 650f
 
-        presenter.managerData(Imovel().apply {
+        val mock = Imovel().apply {
             this.usableAreas = areaMock
             this.bathrooms = bathroomMock
             this.bedrooms = bedroomMock
@@ -74,13 +72,15 @@ class DetailPresenterTest{
                 this.monthlyCondoFee = monthlyMock
                 this.yearlyIptu = iptuMock
             }
-        })
+        }
+
+        presenter.managerData(mock)
 
         Mockito.verify(view, Mockito.times(1)).loadParking(parkingMock)
         Mockito.verify(view, Mockito.times(1)).loadBathroom(bathroomMock)
         Mockito.verify(view, Mockito.times(1)).loadBedroom(bedroomMock)
         Mockito.verify(view, Mockito.times(1)).loadDescription(areaMock.toInt(), bedroomMock, bathroomMock, parkingMock, monthlyMock, iptuMock)
-        Mockito.verify(view, Mockito.times(1)).loadPrice()
+        Mockito.verify(view, Mockito.times(1)).loadPrice(mock)
         Mockito.verify(view, Mockito.never()).loadImages(list)
     }
 
@@ -97,7 +97,7 @@ class DetailPresenterTest{
         val monthlyMock = "450"
         val iptuMock = 650f
 
-        presenter.managerData(Imovel().apply {
+        var mock = Imovel().apply {
             this.usableAreas = areaMock
             this.bathrooms = bathroomMock
             this.bedrooms = bedroomMock
@@ -108,13 +108,15 @@ class DetailPresenterTest{
                 this.monthlyCondoFee = monthlyMock
                 this.yearlyIptu = iptuMock
             }
-        })
+        }
+
+        presenter.managerData(mock)
 
         Mockito.verify(view, Mockito.times(1)).loadParking(parkingMock)
         Mockito.verify(view, Mockito.times(1)).loadBathroom(bathroomMock)
         Mockito.verify(view, Mockito.times(1)).loadBedroom(bedroomMock)
         Mockito.verify(view, Mockito.times(1)).loadDescription(areaMock.toInt(), bedroomMock, bathroomMock, parkingMock, monthlyMock, iptuMock)
-        Mockito.verify(view, Mockito.times(1)).loadPrice()
+        Mockito.verify(view, Mockito.times(1)).loadPrice(mock)
         Mockito.verify(view, Mockito.times(1)).loadImages(list)
     }
 
