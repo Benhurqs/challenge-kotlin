@@ -23,7 +23,7 @@ class ImovelFormatedUtilsTest{
     fun test_description_formatter(){
         var bedrooms = 1
         var bathrooms = 2
-        var usableAreas = 22.3
+        var usableAreas = 22.3f
         var parkingSpaces = 3
 
         val imovel = Imovel().apply {
@@ -42,7 +42,7 @@ class ImovelFormatedUtilsTest{
     fun test_price_formatter(){
         val imovel = Imovel().apply {
             pricingInfos = PricingInfo().apply {
-                price = 123.56
+                price = 123.56f
             }
         }
 

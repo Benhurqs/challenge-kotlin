@@ -5,6 +5,12 @@ import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
+import com.benhurqs.base.model.BusinessType
+import com.benhurqs.base.model.Imovel
+import com.benhurqs.base.model.PricingInfo
+import com.benhurqs.base.model.address.Address
+import com.benhurqs.base.model.address.Geolocation
+import com.benhurqs.base.model.address.Location
 import com.benhurqs.mainlist.R
 import com.benhurqs.mainlist.presentation.contract.MainListView
 import org.hamcrest.CoreMatchers.not
@@ -121,42 +127,6 @@ class ListActivityTest{
     }
 
     @Test
-    fun test_click_zap_filter(){
-        callFuction { view.hideProgress() }
-        callFuction { view.showFilter() }
-        callFuction { view.showCloseFilter() }
-        callFuction { view.hideError() }
-
-        Thread.sleep(1000)
-        checkIfDisplayed(R.id.filter)
-
-        onClickView(R.id.filter_zap)
-        Thread.sleep(1000)
-
-        checkIfNotDisplayed(R.id.filter)
-        onView(withId(R.id.list_title)).check(ViewAssertions.matches(withText("Zap")))
-
-    }
-
-    @Test
-    fun test_click_viva_filter(){
-        callFuction { view.hideProgress() }
-        callFuction { view.showFilter() }
-        callFuction { view.showCloseFilter() }
-        callFuction { view.hideError() }
-
-        Thread.sleep(1000)
-        checkIfDisplayed(R.id.filter)
-
-        onClickView(R.id.filter_viva_real)
-        Thread.sleep(1000)
-
-        checkIfNotDisplayed(R.id.filter)
-        onView(withId(R.id.list_title)).check(ViewAssertions.matches(withText("Viva Real")))
-
-    }
-
-    @Test
     fun test_click_error_retry(){
         callFuction { view.hideProgress() }
         callFuction { view.hideFilter() }
@@ -196,4 +166,38 @@ class ListActivityTest{
     fun onClickView(viewId: Int){
         onView(withId(viewId)).perform(ViewActions.click())
     }
+
+    fun getMock(): ArrayList<Imovel> {
+        val imovel = Imovel().apply {
+            usableAreas = 12456f
+            address = Address().apply {
+                city = "Cidade"
+                neighborhood = "Bairro"
+                geoLocation = Geolocation().apply {
+                    precision = "Precision"
+                    location = Location().apply {
+                        lat = -23.558704
+                        lon = -46.673419
+
+                    }
+
+                }
+                pricingInfos = PricingInfo().apply {
+                    price = 4000f
+                    businessType = BusinessType.RENTAL.name
+                    monthlyCondoFee = "500"
+                }
+            }
+        }
+
+        return  ArrayList<Imovel>().apply {
+            add(imovel)
+            add(imovel)
+            add(imovel)
+        }
+    }
+
+
+
+
 }
