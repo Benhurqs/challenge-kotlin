@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.benhurqs.base.utils
 
 import android.widget.ImageView
