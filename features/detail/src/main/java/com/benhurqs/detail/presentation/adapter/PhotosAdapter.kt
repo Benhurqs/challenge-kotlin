@@ -10,7 +10,7 @@ import com.benhurqs.detail.R
 import kotlinx.android.synthetic.main.detail_photo_item.view.*
 
 
-class PhotosAdapter(val context: Context, val imageList: Array<String>) : PagerAdapter(){
+class PhotosAdapter(val context: Context, val imageList: List<String>) : PagerAdapter(){
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
         return `object` === view
     }

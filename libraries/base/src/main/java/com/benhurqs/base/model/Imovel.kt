@@ -4,7 +4,7 @@ import com.benhurqs.base.model.address.Address
 import java.io.Serializable
 
 class Imovel: Serializable {
-    var usableAreas: Double = 0.0
+    var usableAreas: Float = 0f
     var listingType: String? = null
     var createdAt: String? = null
     var listingStatus: String? = null
@@ -16,7 +16,7 @@ class Imovel: Serializable {
     var bedrooms: Int = 0
     var pricingInfos: PricingInfo? = null
     var address: Address? = null
-    var images: Array<String>? = null
+    var images: List<String>? = null
 
 
 }

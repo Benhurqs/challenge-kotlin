@@ -18,7 +18,7 @@ object Mocks{
 
     fun getImovel(): Imovel{
         return Imovel().apply {
-            usableAreas = 12456.0
+            usableAreas = 12456f
             address = getAddress()
             pricingInfos = getPricingInfoRental()
         }
@@ -44,7 +44,7 @@ object Mocks{
 
     fun getPricingInfoRental(): PricingInfo {
         return PricingInfo().apply{
-            price = 4000.0
+            price = 4000f
             businessType = BusinessType.RENTAL.name
             monthlyCondoFee = "500"
         }
@@ -52,7 +52,7 @@ object Mocks{
 
     fun getPricingInfoSales(): PricingInfo {
         return PricingInfo().apply{
-            price = 600000.0
+            price = 600000f
             businessType = BusinessType.SALE.name
         }
     }
@@ -77,8 +77,8 @@ object Mocks{
         imovel.id = "1"
         imovel.pricingInfos = Mocks.getPricingInfoRental()
         imovel.pricingInfos?.businessType = BusinessType.SALE.name
-        imovel.usableAreas = 10.0
-        imovel.pricingInfos?.price = 800000.0
+        imovel.usableAreas = 10f
+        imovel.pricingInfos?.price = 800000f
 
         return imovel
     }
@@ -88,7 +88,7 @@ object Mocks{
         val imovel = Mocks.getImovel()
         imovel.id = "2"
         imovel.pricingInfos = Mocks.getPricingInfoRental()
-        imovel.pricingInfos?.price = 7000.0
+        imovel.pricingInfos?.price = 7000f
 
         return imovel
     }
@@ -98,7 +98,7 @@ object Mocks{
         imovel.id = "3"
         imovel.pricingInfos = Mocks.getPricingInfoRental()
         imovel.pricingInfos?.businessType = BusinessType.SALE.name
-        imovel.pricingInfos?.price = 500000.0
+        imovel.pricingInfos?.price = 500000f
 
         return imovel
     }
@@ -109,7 +109,7 @@ object Mocks{
         imovel.id = "4"
         imovel.pricingInfos = Mocks.getPricingInfoRental()
         imovel.pricingInfos?.monthlyCondoFee = "100"
-        imovel.pricingInfos?.price = 1000.0
+        imovel.pricingInfos?.price = 1000f
 
         return imovel
     }

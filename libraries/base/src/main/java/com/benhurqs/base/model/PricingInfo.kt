@@ -3,9 +3,9 @@ package com.benhurqs.base.model
 import java.io.Serializable
 
 class PricingInfo : Serializable{
-    var price: Double = 0.0 // Valor de venda
-    var rentalTotalPrice: Double = 0.0 // Valor de aluguel
+    var price: Float = 0f // Valor de venda
+    var rentalTotalPrice: Float = 0f // Valor de aluguel
     var businessType: String? = null // define se é aluguel ou venda
-    var yearlyIptu: Double = 0.0
+    var yearlyIptu: Float = 0f
     var monthlyCondoFee: String? = null
 }

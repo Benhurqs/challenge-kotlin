@@ -30,7 +30,7 @@ object ImovelFormatedUtils {
         return formattedSTR
     }
 
-    fun formatValue(price: Double?): String{
+    fun formatValue(price: Float?): String{
         if (price == null) return ""
         val nf = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
         nf.maximumFractionDigits = 2
@@ -50,7 +50,7 @@ object ImovelFormatedUtils {
             return ""
         }
 
-        return formatValue(price.toDouble())
+        return formatValue(price.toFloat())
     }
 
 }
