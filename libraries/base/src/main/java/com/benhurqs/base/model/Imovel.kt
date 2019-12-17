@@ -1,8 +1,9 @@
 package com.benhurqs.base.model
 
 import com.benhurqs.base.model.address.Address
+import java.io.Serializable
 
-class Imovel {
+class Imovel: Serializable {
     var usableAreas: Double = 0.0
     var listingType: String? = null
     var createdAt: String? = null

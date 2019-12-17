@@ -3,7 +3,7 @@
     package="com.benhurqs.detail">
 
     <application android:theme="@style/AppTheme">
-        <activity android:name=".DetailActivity">
+        <activity android:name=".presentation.ui.activity.DetailActivity">
             <intent-filter>
                 <action android:name="com.benhurqs.detail.open"/>
                 <category android:name="android.intent.category.DEFAULT" />

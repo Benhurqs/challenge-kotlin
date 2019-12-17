@@ -22,21 +22,35 @@ object ImovelFormatedUtils {
     }
 
     fun formatPrice(context: Context, imovel: Imovel): String {
-        if (imovel.pricingInfos?.price == null) return ""
-        val nf = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
-        nf.maximumFractionDigits = 2
-
-        var symbol: String? = nf.currency.symbol
-        var formattedSTR = nf.format(imovel.pricingInfos!!.price)
-        if (!symbol.isNullOrEmpty() && !symbol.contains(" ")) {
-            formattedSTR = formattedSTR.replace(symbol, "$symbol ")
-        }
-
+        var formattedSTR = formatValue(imovel.pricingInfos?.price)
         if(imovel.pricingInfos?.businessType == BusinessType.RENTAL.name){
             formattedSTR = context.getString(R.string.rental_price, formattedSTR)
         }
 
         return formattedSTR
+    }
+
+    fun formatValue(price: Double?): String{
+        if (price == null) return ""
+        val nf = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
+        nf.maximumFractionDigits = 2
+
+        var symbol: String? = nf.currency.symbol
+        var formattedSTR = nf.format(price)
+        if (!symbol.isNullOrEmpty() && !symbol.contains(" ")) {
+            formattedSTR = formattedSTR.replace(symbol, "$symbol ")
+        }
+
+        return formattedSTR
+
+    }
+
+    fun formatValue(price: String?): String{
+        if(price == null || !price.matches("-?\\d+(\\.\\d+)?".toRegex())){
+            return ""
+        }
+
+        return formatValue(price.toDouble())
     }
 
 }

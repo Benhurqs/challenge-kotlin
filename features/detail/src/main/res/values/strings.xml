@@ -1,3 +1,8 @@
 <resources>
 
+    <string name="bathroom">banheiro(s)</string>
+    <string name="bedroom">quarto(s)</string>
+    <string name="parking">vaga(s)</string>
+    <string name="price">Preço</string>
+    <string name="detail_description">Apartamento com aproximadamente %1$d m² de puro luxo, pronto para morar. Contem %2$d quartos, %3$d banheiros %4$d vagas na garagem. Condominio de %5$s e IPTU de %6$s.</string>
 </resources>

@@ -49,7 +49,7 @@ class ListActivity : AppCompatActivity(), MainListView{
     override fun loadList(list: List<Imovel>) {
         list_recyclerview.layoutManager = LinearLayoutManager(this@ListActivity, LinearLayoutManager.VERTICAL, false)
         list_recyclerview.adapter = ListAdapter(list){
-            startActivity(Actions.openDetailIntent(this))
+            startActivity(Actions.openDetailIntent(this, it))
         }
     }
 
