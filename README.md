@@ -37,8 +37,8 @@ O código esta coberto com testes unitários e teste de interface.
 Abaixo as tasks para rodar todas os teste no código:
 
 
-- gradle test (Roda todos os teste unitários)
-- gradle connectedAndroidTest (Roda todos os testes de interface)
+- ```gradle test``` (Roda todos os teste unitários)
+- ```gradle connectedAndroidTest``` (Roda todos os testes de interface)
 Para executar os testes de interface é necessário ter um device conectado
 
 

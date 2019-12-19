@@ -13,9 +13,6 @@ import androidx.annotation.RequiresApi
 
 object AnimationView{
 
-    var CENTER_X: String = "center_x"
-    var CENTER_Y: String = "center_y"
-
     interface AnimatorViewListener{
         fun onAnimationEnd(animation: Animator?)
         fun onAnimationStart(animation: Animator?)
