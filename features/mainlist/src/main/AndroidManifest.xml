@@ -6,7 +6,8 @@
         android:icon="@drawable/ic_icon"
         android:label="@string/app_name"
         android:supportsRtl="true">
-        <activity android:name=".presentation.ui.activity.ListActivity">
+        <activity android:name=".presentation.ui.activity.ListActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
