@@ -12,6 +12,7 @@ O aplicativo foi desenvolvido em módulos, utilizando Kotlin.
 ## Módulos
 
 Existem 5 módulos separados em dois tipos:
+*Clique para ver mais detalhes dos módulos*
 
 #### Libraries: 
 - [Base](./libraries/base/README.md)

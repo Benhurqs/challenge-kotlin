@@ -50,7 +50,7 @@ open class ListRepository(
 
                 override fun onNext(response: List<Imovel>?) {
                     if(response.isNullOrEmpty()){
-                        callback?.onError("vazio")
+                        callback?.onError("")
                     }else{
                         zapUseCase = ZapUseCase(response)
                         vivaRealUseCase = VivaRealUseCase(response)
