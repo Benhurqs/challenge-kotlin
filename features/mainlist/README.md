@@ -26,3 +26,13 @@ A organização de pastas é feita por tipo:
 
 ![MainList fluxo 2](../../imgs/mainListFluxo2.png?raw=true) 
  
+ 
+## Teste
+
+O código esta coberto com testes unitários e teste de interface.
+Abaixo as tasks para rodar todas os teste no código:
+
+
+- ```gradle :features:mainlist:test``` (Roda todos os teste unitários)
+- ```gradle :features:mainlist:connectedAndroidTest``` (Roda todos os testes de interface)
+Para executar os testes de interface é necessário ter um device conectado
