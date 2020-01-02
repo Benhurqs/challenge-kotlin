@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Imóveis</string>
-    <string name="viva_real">Viva Real</string>
-    <string name="zap">Zap</string>
     <string name="searching">Procurando seu novo lar...</string>
     <string name="loading_message">Estamos sempre prontos para te auxiliar a encontrar um novo lugar para chamar de lar.</string>
+    <string name="viva_real">Viva Real</string>
+    <string name="zap">Zap</string>
+    <string name="businness_type">Venda</string>
 </resources>

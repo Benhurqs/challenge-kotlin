@@ -13,6 +13,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="16dp"
+        android:baselineAligned="false"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -25,13 +26,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:background="@color/image_bg"/>
+                android:background="@color/image_bg"
+                android:contentDescription="@null"/>
 
             <TextView
                 android:id="@+id/type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Venda"
+                android:text="@string/businness_type"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:paddingBottom="5dp"
@@ -59,14 +61,16 @@
                 android:layout_height="95dp"
                 android:layout_marginBottom="10dp"
                 android:scaleType="centerCrop"
-                android:background="@color/image_bg"/>
+                android:background="@color/image_bg"
+                android:contentDescription="@null"/>
 
             <ImageView
                 android:id="@+id/item_image_3"
                 android:layout_width="match_parent"
                 android:layout_height="95dp"
                 android:scaleType="centerCrop"
-                android:background="@color/image_bg"/>
+                android:background="@color/image_bg"
+                android:contentDescription="@null"/>
 
         </LinearLayout>
 
